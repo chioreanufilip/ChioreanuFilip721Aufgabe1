@@ -12,7 +12,8 @@ public class Main {
 //        System.out.println(mitglied.name);
 //    }
 //        main.showWithLetter();
-        main.writeToFile();
+//        main.writeToFile();
+        main.showafterDate();
 
     }
     public List<Mitglied> readFile(){
@@ -52,6 +53,18 @@ public class Main {
 //            System.out.println(mitglied.getName());
 //        }
     }
+
+    public void showafterDate(){
+        List<Mitglied> students = readFile();
+        Mitglied[] stu = students.toArray(new Mitglied[students.size()]);
+//        List<Student> students1 = students.sort(Collections.)
+        Arrays.sort(stu,Comparator.comparing(Mitglied::getDate));
+        students.sort(Comparator.comparing(Mitglied::getName));
+        for(Mitglied student : stu){
+            System.out.println(student.getDate()+": "+student.getName()+"-"+student.getEreignis());
+        }
+    }
+
 public void writeToFile(){
 List<Mitglied> students = readFile();
 int stark=0;
